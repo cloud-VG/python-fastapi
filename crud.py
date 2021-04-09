@@ -58,6 +58,7 @@ def delete_audio(f_type: str, f_id: int, db: Session):
         data = db.query(types[f_type]).filter(types[f_type].id == f_id).first()
         if data:
             db.query(types[f_type]).filter(types[f_type].id == f_id).delete()
+            db.commit()
             return data
 
 
